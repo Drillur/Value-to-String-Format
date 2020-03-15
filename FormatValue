@@ -54,12 +54,15 @@ func format_val_medium(_sign: int, value) -> String:
 	
 	# for numbers > 1,000 and < 1,000,000
 	
-	value = String(_sign * round(value))
-	var output := ""
-	for i in range(0, value.length()):
-		if i != 0 and i % 3 == value.length() % 3:
+	var string = str(round(value))
+	var mod = string.length() % 3
+	var output = ""
+	
+	for i in range(0, string.length()):
+		if i != 0 && i % 3 == mod:
 			output += ","
-		output += value[i]
+		output += string[i]
+	
 	return output # 342,945
 
 
